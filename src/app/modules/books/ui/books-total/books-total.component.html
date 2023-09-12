@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title i18n>Books Gross Total</mat-card-title>
+    <mat-card-subtitle i18n>
+      Sum of the value of all registered books
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="d-flex justify-content-between">
+      <p i18n data-test="p-total">Grand Total: {{ total | currency }}</p>
+      <button mat-raised-button color="primary" (click)="addBook.emit()" i18n>
+        Add
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

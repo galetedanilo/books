@@ -10,7 +10,8 @@
     "test:watch": "jest --watch",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "prettier": "npx prettier --write"
+    "prettier": "npx prettier --write",
+    "server": "json-server --watch --delay=1000 ./data/db.json"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,8 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "bootstrap": "^5.3.1",
+    "ngx-mask": "^16.3.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

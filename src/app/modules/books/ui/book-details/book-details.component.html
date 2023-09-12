@@ -1,0 +1,146 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="book === null; else editBook" i18n
+      >Add Book</mat-card-title
+    >
+    <ng-template #editBook>
+      <mat-card-title i18n
+        >Edit: {{ form.controls['name'].value }}</mat-card-title
+      >
+    </ng-template>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form
+      class="py-4"
+      [formGroup]="form"
+      (submit)="onSave()"
+      (reset)="onReset($event)">
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field hintLabel="Max 100 characters" i18n-hintLabel>
+            <mat-label i18n>Book Name</mat-label>
+            <input
+              matInput
+              maxlength="100"
+              placeholder="Ex. The Hobbit"
+              formControlName="name"
+              i18n-placeholder
+              data-testid="input-name" />
+            <mat-hint align="end"
+              >{{ form.controls['name'].value?.length }}/100</mat-hint
+            >
+            <mat-error *ngIf="form.get('name')?.hasError" i18n
+              >Required field</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <mat-form-field hintLabel="Max 50 characters" i18n-hintLabel>
+            <mat-label i18n>Author Name</mat-label>
+            <input
+              matInput
+              maxlength="50"
+              placeholder="Ex. J. R. R. Tolkien"
+              formControlName="author"
+              i18n-placeholder
+              data-testid="input-author" />
+            <mat-hint align="end"
+              >{{ form.controls['author'].value?.length }}/50</mat-hint
+            >
+            <mat-error *ngIf="form.get('author')?.hasError" i18n
+              >Required field</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <mat-form-field hintLabel="Max 5 characters" i18n-hintLabel>
+            <mat-label i18n>Book Quantity</mat-label>
+            <input
+              matInput
+              maxlength="5"
+              placeholder="Ex. 520"
+              formControlName="quantity"
+              mask="0*"
+              min="0"
+              max="99999"
+              i18n-placeholder
+              data-testid="input-quantity" />
+            <mat-hint align="end"
+              >{{ form.controls['quantity'].value?.length }}/5</mat-hint
+            >
+            <mat-error *ngIf="form.get('quantity')?.hasError" i18n
+              >Required field</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <mat-form-field hintLabel="Max 5 characters" i18n-hintLabel>
+            <mat-label i18n>Book Amount</mat-label>
+            <input
+              matInput
+              maxlength="8"
+              placeholder="Ex. 12.45"
+              formControlName="amount"
+              mask="separator.2"
+              thousandSeparator=","
+              separatorLimit="1000"
+              [dropSpecialCharacters]="false"
+              [leadZero]="true"
+              i18n-placeholder
+              data-testid="input-value" />
+            <mat-hint align="end"
+              >{{ form.controls['amount'].value?.length }}/8</mat-hint
+            >
+            <mat-error *ngIf="form.get('amount')?.hasError" i18n
+              >Required field</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field hintLabel="Max 1000 characters" i18n-hintLabel>
+            <mat-label i18n>Book Description</mat-label>
+            <textarea
+              matInput
+              #input
+              placeholder="Ex. Description of the book"
+              formControlName="description"
+              i18n-placeholder
+              data-testid="input-description"></textarea>
+            <mat-hint align="end"
+              >{{ form.controls['description'].value?.length }}/1000</mat-hint
+            >
+            <mat-error *ngIf="form.get('description')?.hasError" i18n
+              >Required field</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-end gap-3 pt-4">
+          <button
+            type="reset"
+            mat-flat-button
+            color="warn"
+            [disabled]="form.pristine"
+            i18n>
+            Cancel
+          </button>
+          <button
+            type="submit"
+            mat-flat-button
+            color="primary"
+            [disabled]="this.form.invalid"
+            i18n>
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

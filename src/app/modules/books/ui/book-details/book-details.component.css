@@ -1,0 +1,8 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-title {
+  border-bottom: 2px solid red;
+  padding-bottom: 0.5rem;
+}

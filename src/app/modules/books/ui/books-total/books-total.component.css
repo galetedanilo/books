@@ -1,0 +1,9 @@
+mat-card {
+  gap: 1rem;
+}
+
+mat-card-title {
+  border-bottom: 2px solid red;
+  padding-bottom: 0.5rem;
+}
+
