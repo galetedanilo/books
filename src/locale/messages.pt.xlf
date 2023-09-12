@@ -1,3 +1,214 @@
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" trgLang="pt">
-  <file original="ng.template" id="ngi18n"/>
+  <file original="ng.template" id="ngi18n">
+    <unit id="3802117367815262908">
+      <segment state="initial">
+        <source>New book registered successfully</source>
+        <target>Novo livro registrado com sucesso</target>
+      </segment>
+    </unit>
+    <unit id="6777491147393760910">
+      <segment state="initial">
+        <source>An error occurred while saving the data</source>
+        <target>Ocorreu um erro ao salvar os dados</target>
+      </segment>
+    </unit>
+    <unit id="282079626208573237">
+      <segment state="initial">
+        <source>Update book registered successfully</source>
+        <target>Atualizar livro registrado com sucesso</target>
+      </segment>
+    </unit>
+    <unit id="8664938545861156720">
+      <segment state="initial">
+        <source>An error occurred while loading the data</source>
+        <target>Ocorreu um erro ao carregar os dadosa</target>
+      </segment>
+    </unit>
+    <unit id="8963173117497328406">
+      <segment state="initial">
+        <source>Remove Book</source>
+        <target>Remover Livro</target>
+      </segment>
+    </unit>
+    <unit id="4546950708309996284">
+      <segment state="initial">
+        <source>Do you want to remove the book: <ph id="0" equiv="PH" disp="book.name"/></source>
+        <target>Você deseja remover o livro: <ph id="0" equiv="PH" disp="book.name"/></target>
+      </segment>
+    </unit>
+    <unit id="5284816349301912582">
+      <segment state="initial">
+        <source>Book removed successfully</source>
+        <target>Livro removido com sucesso</target>
+      </segment>
+    </unit>
+    <unit id="2577359967354846466">
+      <segment state="initial">
+        <source>An error occurred while deleting data</source>
+        <target>Ocorreu um erro ao excluir dados</target>
+      </segment>
+    </unit>
+    <unit id="707877189206353746">
+      <segment state="initial">
+        <source>Add Book</source>
+        <target>Adicionar Livro</target>
+      </segment>
+    </unit>
+    <unit id="4321508145358501878">
+      <segment state="initial">
+        <source>Edit: <ph id="0" equiv="INTERPOLATION" disp="{{ form.controls[&apos;name&apos;].value }}"/></source>
+        <target>Editar: <ph id="0" equiv="INTERPOLATION" disp="{{ form.controls[&apos;name&apos;].value }}"/></target>
+      </segment>
+    </unit>
+    <unit id="4089186367992910761">
+      <segment state="initial">
+        <source>Book Name</source>
+        <target>Nome do Livro</target>
+      </segment>
+    </unit>
+    <unit id="821665890726307024">
+      <segment state="initial">
+        <source>Ex. The Hobbit</source>
+        <target>Ex. The Hobbit</target>
+      </segment>
+    </unit>
+    <unit id="2175784236523326802">
+      <segment state="initial">
+        <source>Required field</source>
+        <target>Campo obrigatório</target>
+      </segment>
+    </unit>
+    <unit id="5747082554357844028">
+      <segment state="initial">
+        <source>Author Name</source>
+        <target>Nome do Autor</target>
+      </segment>
+    </unit>
+    <unit id="4824434525428171431">
+      <segment state="initial">
+        <source>Ex. J. R. R. Tolkien</source>
+        <target>Ex. J. R. R. Tolkien</target>
+      </segment>
+    </unit>
+    <unit id="3923028325447614883">
+      <segment state="initial">
+        <source>Book Quantity</source>
+        <target>Quantidade de Livros</target>
+      </segment>
+    </unit>
+    <unit id="6302099664874549568">
+      <segment state="initial">
+        <source>Ex. 520</source>
+        <target>Ex. 520</target>
+      </segment>
+    </unit>
+    <unit id="12451257263176082">
+      <segment state="initial">
+        <source>Book Amount</source>
+        <target>Preço do Livro</target>
+      </segment>
+    </unit>
+    <unit id="7014733426961631436">
+      <segment state="initial">
+        <source>Ex. 12.45</source>
+        <target>Ex. 12.45</target>
+      </segment>
+    </unit>
+    <unit id="7662947513768719276">
+      <segment state="initial">
+        <source>Book Description</source>
+        <target>Descrição do Livro</target>
+      </segment>
+    </unit>
+    <unit id="6326645369997018146">
+      <segment state="initial">
+        <source>Ex. Description of the book</source>
+        <target>Ex. Descrição do livro</target>
+      </segment>
+    </unit>
+    <unit id="2330577642930707695">
+      <segment state="initial">
+        <source> Cancel </source>
+        <target> Canelar </target>
+      </segment>
+    </unit>
+    <unit id="3620188369327429839">
+      <segment state="initial">
+        <source> Save </source>
+        <target> Salvar </target>
+      </segment>
+    </unit>
+    <unit id="5224604665222373201">
+      <segment state="initial">
+        <source>Books</source>
+        <target>Livros</target>
+      </segment>
+    </unit>
+    <unit id="7376995994074534095">
+      <segment state="initial">
+        <source>Author: <ph id="0" equiv="INTERPOLATION" disp="{{ book.author }}"/> - Value: <ph id="1" equiv="INTERPOLATION_1" disp="{{ book.amount | currency }}"/></source>
+        <target>Autor: <ph id="0" equiv="INTERPOLATION" disp="{{ book.author }}"/> - Preço: <ph id="1" equiv="INTERPOLATION_1" disp="{{ book.amount | currency }}"/></target>
+      </segment>
+    </unit>
+    <unit id="6138394011928061479">
+      <segment state="initial">
+        <source>Books Gross Total</source>
+        <target>Total Bruto de Livros</target>
+      </segment>
+    </unit>
+    <unit id="7807515390272596780">
+      <segment state="initial">
+        <source> Sum of the value of all registered books </source>
+        <target> Soma do valor de todos os livros registrados </target>
+      </segment>
+    </unit>
+    <unit id="6197459159779699682">
+      <segment state="initial">
+        <source>Grand Total: <ph id="0" equiv="INTERPOLATION" disp="{{ total | currency }}"/></source>
+        <target>Total Geral: <ph id="0" equiv="INTERPOLATION" disp="{{ total | currency }}"/></target>
+      </segment>
+    </unit>
+    <unit id="577038887888857351">
+      <segment state="initial">
+        <source> Add </source>
+        <target> Adicionar </target>
+      </segment>
+    </unit>
+    <unit id="3542042671420335679">
+      <segment state="initial">
+        <source>No</source>
+        <target>Não</target>
+      </segment>
+    </unit>
+    <unit id="2807800733729323332">
+      <segment state="initial">
+        <source>Yes</source>
+        <target>Sim</target>
+      </segment>
+    </unit>
+    <unit id="3583181147462252106">
+      <segment state="initial">
+        <source>Max 100 characters</source>
+        <target>Máximo de 100 caracteres</target>
+      </segment>
+    </unit>
+    <unit id="1799157602395049007">
+      <segment state="initial">
+        <source>Max 50 characters</source>
+        <target>Máximo de 50 caracteres</target>
+      </segment>
+    </unit>
+    <unit id="9078791461060567161">
+      <segment state="initial">
+        <source>Max 5 characters</source>
+        <target>Máximo de 5 caracteres</target>
+      </segment>
+    </unit>
+    <unit id="3332506480362645211">
+      <segment state="initial">
+        <source>Max 1000 characters</source>
+        <target>Máximo de 1000 caracteres</target>
+      </segment>
+    </unit>
+  </file>
 </xliff>

@@ -1,4 +1,180 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
-  <file id="ngi18n" original="ng.template"/>
+  <file id="ngi18n" original="ng.template">
+    <unit id="12451257263176082">
+      <segment>
+        <source>Book Amount</source>
+      </segment>
+    </unit>
+    <unit id="2175784236523326802">
+      <segment>
+        <source>Required field</source>
+      </segment>
+    </unit>
+    <unit id="2330577642930707695">
+      <segment>
+        <source> Cancel </source>
+      </segment>
+    </unit>
+    <unit id="2577359967354846466">
+      <segment>
+        <source>An error occurred while deleting data</source>
+      </segment>
+    </unit>
+    <unit id="2807800733729323332">
+      <segment>
+        <source>Yes</source>
+      </segment>
+    </unit>
+    <unit id="282079626208573237">
+      <segment>
+        <source>Update book registered successfully</source>
+      </segment>
+    </unit>
+    <unit id="3542042671420335679">
+      <segment>
+        <source>No</source>
+      </segment>
+    </unit>
+    <unit id="3620188369327429839">
+      <segment>
+        <source> Save </source>
+      </segment>
+    </unit>
+    <unit id="3802117367815262908">
+      <segment>
+        <source>New book registered successfully</source>
+      </segment>
+    </unit>
+    <unit id="3923028325447614883">
+      <segment>
+        <source>Book Quantity</source>
+      </segment>
+    </unit>
+    <unit id="4089186367992910761">
+      <segment>
+        <source>Book Name</source>
+      </segment>
+    </unit>
+    <unit id="4321508145358501878">
+      <segment>
+        <source>Edit: <ph id="0" equiv="INTERPOLATION" disp="{{ form.controls[&apos;name&apos;].value }}"/></source>
+      </segment>
+    </unit>
+    <unit id="4546950708309996284">
+      <segment>
+        <source>Do you want to remove the book: <ph id="0" equiv="PH" disp="book.name"/></source>
+      </segment>
+    </unit>
+    <unit id="4824434525428171431">
+      <segment>
+        <source>Ex. J. R. R. Tolkien</source>
+      </segment>
+    </unit>
+    <unit id="5224604665222373201">
+      <segment>
+        <source>Books</source>
+      </segment>
+    </unit>
+    <unit id="5284816349301912582">
+      <segment>
+        <source>Book removed successfully</source>
+      </segment>
+    </unit>
+    <unit id="5747082554357844028">
+      <segment>
+        <source>Author Name</source>
+      </segment>
+    </unit>
+    <unit id="577038887888857351">
+      <segment>
+        <source> Add </source>
+      </segment>
+    </unit>
+    <unit id="6138394011928061479">
+      <segment>
+        <source>Books Gross Total</source>
+      </segment>
+    </unit>
+    <unit id="6197459159779699682">
+      <segment>
+        <source>Grand Total: <ph id="0" equiv="INTERPOLATION" disp="{{ total | currency }}"/></source>
+      </segment>
+    </unit>
+    <unit id="6302099664874549568">
+      <segment>
+        <source>Ex. 520</source>
+      </segment>
+    </unit>
+    <unit id="6326645369997018146">
+      <segment>
+        <source>Ex. Description of the book</source>
+      </segment>
+    </unit>
+    <unit id="6777491147393760910">
+      <segment>
+        <source>An error occurred while saving the data</source>
+      </segment>
+    </unit>
+    <unit id="7014733426961631436">
+      <segment>
+        <source>Ex. 12.45</source>
+      </segment>
+    </unit>
+    <unit id="707877189206353746">
+      <segment>
+        <source>Add Book</source>
+      </segment>
+    </unit>
+    <unit id="7376995994074534095">
+      <segment>
+        <source>Author: <ph id="0" equiv="INTERPOLATION" disp="{{ book.author }}"/> - Value: <ph id="1" equiv="INTERPOLATION_1" disp="{{ book.amount | currency }}"/></source>
+      </segment>
+    </unit>
+    <unit id="7662947513768719276">
+      <segment>
+        <source>Book Description</source>
+      </segment>
+    </unit>
+    <unit id="7807515390272596780">
+      <segment>
+        <source> Sum of the value of all registered books </source>
+      </segment>
+    </unit>
+    <unit id="821665890726307024">
+      <segment>
+        <source>Ex. The Hobbit</source>
+      </segment>
+    </unit>
+    <unit id="8664938545861156720">
+      <segment>
+        <source>An error occurred while loading the data</source>
+      </segment>
+    </unit>
+    <unit id="8963173117497328406">
+      <segment>
+        <source>Remove Book</source>
+      </segment>
+    </unit>
+    <unit id="1799157602395049007">
+      <segment>
+        <source>Max 50 characters</source>
+      </segment>
+    </unit>
+    <unit id="3332506480362645211">
+      <segment>
+        <source>Max 1000 characters</source>
+      </segment>
+    </unit>
+    <unit id="3583181147462252106">
+      <segment>
+        <source>Max 100 characters</source>
+      </segment>
+    </unit>
+    <unit id="9078791461060567161">
+      <segment>
+        <source>Max 5 characters</source>
+      </segment>
+    </unit>
+  </file>
 </xliff>

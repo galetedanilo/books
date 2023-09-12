@@ -62,7 +62,6 @@ export class BookDetailsComponent implements OnInit, OnChanges {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(_changes: SimpleChanges): void {
-    console.log('Chamou');
     if (this.book != null) {
       this.form.patchValue({
         id: this.book.id,
@@ -72,11 +71,7 @@ export class BookDetailsComponent implements OnInit, OnChanges {
         amount: this.book.amount.toFixed(2).toString(),
         description: this.book.description,
       });
-    } else {
-      this.formDir.resetForm(this.initialFormValue);
     }
-
-    //this.loading ? this.form.disable() : this.form.enable();
   }
 
   #creatForm() {
