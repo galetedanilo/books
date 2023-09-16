@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -42,21 +43,23 @@ import { EmitterType } from '../../enums/emitter-type.enum';
   ],
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailsComponent implements OnInit, OnChanges {
   @Input() book!: BookModel | null;
-  @Input() loading = false;
+  @Input() loading!: boolean | null;
   @Output() eventEmitter = new EventEmitter<BookEmitter>();
 
   @ViewChild(FormGroupDirective)
   private formDir!: FormGroupDirective;
 
-  private initialFormValue: unknown;
-
   protected form!: FormGroup;
+
+  private initialFormValue: unknown;
 
   ngOnInit(): void {
     this.#creatForm();
+
     this.initialFormValue = this.form.value;
   }
 
@@ -102,7 +105,6 @@ export class BookDetailsComponent implements OnInit, OnChanges {
 
   onReset(e: Event) {
     e.preventDefault();
-    this.book = null;
     this.formDir.resetForm(this.initialFormValue);
   }
 
@@ -112,7 +114,6 @@ export class BookDetailsComponent implements OnInit, OnChanges {
       emitterType: EmitterType.SAVE,
     };
 
-    this.formDir.resetForm(this.initialFormValue);
     this.eventEmitter.emit(data);
   }
 }

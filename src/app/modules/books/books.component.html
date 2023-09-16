@@ -1,8 +1,8 @@
 <div class="container">
-  <app-books-total [total]="total" (addBook)="onNewBook()" />
-  <app-books-list [books]="books" (eventEmitter)="onEmitter($event)" />
+  <app-books-total [total]="totalPrice$ | async" (addBook)="onNewBook()" />
+  <app-books-list [books]="books$ | async" (eventEmitter)="onEmitter($event)" />
   <app-book-details
-    [book]="currentBook"
-    [loading]="loading"
+    [book]="selectedBook$ | async"
+    [loading]="loading$ | async"
     (eventEmitter)="onEmitter($event)" />
 </div>

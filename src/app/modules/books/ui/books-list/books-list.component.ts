@@ -24,7 +24,7 @@ import { BookEmitter } from '../../interfaces/book-emitter.interface';
   styleUrls: ['./books-list.component.css'],
 })
 export class BooksListComponent {
-  @Input() books!: BookModel[];
+  @Input() books!: ReadonlyArray<BookModel> | null;
   @Output() eventEmitter = new EventEmitter<BookEmitter>();
 
   onEdit(book: BookModel) {

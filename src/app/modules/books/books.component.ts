@@ -1,18 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { BookDetailsComponent } from './ui/book-details/book-details.component';
 import { BooksListComponent } from './ui/books-list/books-list.component';
 import { BooksTotalComponent } from './ui/books-total/books-total.component';
 import { BookEmitter } from './interfaces/book-emitter.interface';
-import { BookService } from './service/book.service';
+
 import { BookModel } from './models/book.model';
 import { EmitterType } from './enums/emitter-type.enum';
-import { finalize } from 'rxjs';
+
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/shared/ui/confirmation/confirmation.component';
+import { Store } from '@ngrx/store';
+import { BooksFeature, booksActions } from './states/books.feature';
 
 @Component({
   selector: 'app-books',
@@ -23,24 +23,27 @@ import { ConfirmationComponent } from 'src/app/shared/ui/confirmation/confirmati
     BooksListComponent,
     BooksTotalComponent,
     ConfirmationComponent,
-    MatSnackBarModule,
     MatDialogModule,
   ],
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  #service = inject(BookService);
-  #snackBar = inject(MatSnackBar);
   #matDialog = inject(MatDialog);
+  #store = inject(Store);
 
-  protected currentBook: BookModel | null = null;
-  protected books: BookModel[] = [];
-  protected total = 0;
-  protected loading = false;
+  protected selectedBook$ = this.#store.select(BooksFeature.selectActiveBook);
+
+  protected books$ = this.#store.select(BooksFeature.selectCollections);
+
+  protected totalPrice$ = this.#store.select(
+    BooksFeature.selectTotalSumOfPrices
+  );
+
+  protected loading$ = this.#store.select(BooksFeature.selectIsSaveLoading);
 
   ngOnInit(): void {
-    this.#getAllBooks();
+    this.#store.dispatch(booksActions.enterBooks());
   }
 
   onEmitter(emitter: BookEmitter) {
@@ -50,7 +53,7 @@ export class BooksComponent implements OnInit {
         break;
 
       case EmitterType.EDIT:
-        this.currentBook = emitter.book;
+        this.#store.dispatch(booksActions.selectBook({ book: emitter.book }));
         break;
 
       case EmitterType.REMOVE:
@@ -60,61 +63,20 @@ export class BooksComponent implements OnInit {
   }
 
   onNewBook() {
-    this.currentBook = null;
+    this.#store.dispatch(booksActions.clearSelectedBook());
   }
 
   #saveBook(book: BookModel) {
-    this.loading = true;
-
-    const bookModel = this.#prepareFormatModel(book);
+    const bookFormated = this.#prepareFormatModel(book);
 
     if (book.id === 0) {
-      this.#service
-        .create(bookModel)
-        .pipe(finalize(() => (this.loading = false)))
-        .subscribe({
-          next: () => {
-            this.#showSnackBar($localize`New book registered successfully`);
-            this.#getAllBooks();
-          },
-          error: () =>
-            this.#showSnackBar(
-              $localize`An error occurred while saving the data`
-            ),
-        });
+      this.#store.dispatch(booksActions.createBook({ book: bookFormated }));
     } else {
-      this.#service
-        .update(bookModel)
-        .pipe(finalize(() => (this.loading = false)))
-        .subscribe({
-          next: () => {
-            this.#showSnackBar($localize`Update book registered successfully`);
-            this.#getAllBooks();
-          },
-          error: () =>
-            this.#showSnackBar(
-              $localize`An error occurred while saving the data`
-            ),
-        });
+      this.#store.dispatch(booksActions.updateBook({ book: bookFormated }));
     }
   }
 
-  #getAllBooks() {
-    this.#service.getBooks().subscribe({
-      next: data => {
-        this.books = data;
-        this.total = this.books.reduce(
-          (prev, book) => prev + book.amount * book.quantity,
-          0
-        );
-        this.currentBook = null;
-      },
-      error: () =>
-        this.#showSnackBar($localize`An error occurred while loading the data`),
-    });
-  }
-
-  #openDialog(book: BookModel): void {
+  #openDialog(book: Readonly<BookModel>): void {
     const dialogRef = this.#matDialog.open(ConfirmationComponent, {
       data: {
         title: $localize`Remove Book`,
@@ -124,24 +86,8 @@ export class BooksComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.#service.delete(book).subscribe({
-          next: () => {
-            this.#showSnackBar($localize`Book removed successfully`);
-            this.#getAllBooks();
-          },
-          error: () =>
-            this.#showSnackBar(
-              $localize`An error occurred while deleting data`
-            ),
-        });
+        this.#store.dispatch(booksActions.deleteBook({ book }));
       }
-    });
-  }
-
-  #showSnackBar(message: string) {
-    this.#snackBar.open(message, 'X', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
     });
   }
 
